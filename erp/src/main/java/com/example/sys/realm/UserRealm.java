@@ -32,7 +32,7 @@ public class UserRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        System.out.println(123);
+//        System.out.println(123);
         String principal = (String) authenticationToken.getPrincipal();
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("loginname",principal);

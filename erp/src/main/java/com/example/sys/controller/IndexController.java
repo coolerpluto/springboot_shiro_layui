@@ -15,4 +15,9 @@ public class IndexController {
     public String index(){
         return "system/index/index";
     }
+
+    @RequestMapping("toDeskManager")
+    public String toDeskManager(){
+        return "system/index/deskManager";
+    }
 }

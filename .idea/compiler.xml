@@ -10,6 +10,7 @@
         <module name="layuicms-mb" />
         <module name="erp" />
         <module name="springboot_leige" />
+        <module name="springboot_shiro_layui" />
       </profile>
     </annotationProcessing>
   </component>

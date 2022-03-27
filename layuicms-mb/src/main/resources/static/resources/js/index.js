@@ -18,6 +18,9 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 	function getData(json){
 		$.getJSON(tab.tabConfig.url,function(data){
 				dataStr = data;
+			//重新渲染左侧菜单
+			tab.render();
+
 		})
 	}
 	//页面加载时判断左侧菜单是否显示
