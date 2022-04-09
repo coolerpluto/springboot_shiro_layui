@@ -63,8 +63,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Permission" />
-                  <option name="tableName" value="sys_permission" />
+                  <option name="className" value="LogLogin" />
+                  <option name="tableName" value="sys_log_login" />
                 </TableUIInfo>
               </list>
             </option>
