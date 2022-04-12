@@ -20,4 +20,9 @@ public class IndexController {
     public String toDeskManager(){
         return "system/index/deskManager";
     }
+
+    @RequestMapping("toLogLoginManager")
+    public String toLogLoginManager(){
+        return "system/loginfo/logLoginManager";
+    }
 }

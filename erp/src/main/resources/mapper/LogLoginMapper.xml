@@ -15,4 +15,9 @@
         id,loginname,loginip,
         logintime
     </sql>
+
+
+    <select id="selectLogLoginPage" resultType="java.util.Map">
+        select * from sys_log_login;
+    </select>
 </mapper>

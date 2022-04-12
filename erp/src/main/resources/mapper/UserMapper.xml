@@ -29,4 +29,5 @@
         mgr,available,ordernum,
         type,imgpath,salt
     </sql>
+
 </mapper>

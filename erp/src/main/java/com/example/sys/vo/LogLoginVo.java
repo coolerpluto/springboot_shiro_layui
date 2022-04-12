@@ -14,9 +14,9 @@ public class LogLoginVo extends LogLogin {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer page;
+    private Integer page=1;
 
-    private Integer limit;
+    private Integer limit=10;
 
     @DateTimeFormat(pattern = "yyyy-mm-dd HH:MM:SS")
     private Date startTime;
