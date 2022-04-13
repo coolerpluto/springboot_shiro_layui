@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("sys")
-public class IndexController {
+public class SystemController {
     @RequestMapping("toLogin")
     public String toLogin(){
         return "system/index/login";
@@ -24,5 +24,10 @@ public class IndexController {
     @RequestMapping("toLogLoginManager")
     public String toLogLoginManager(){
         return "system/loginfo/logLoginManager";
+    }
+
+    @RequestMapping("toNoticeManager")
+    public String toNoticeManager(){
+        return "system/notice/noticeManager";
     }
 }
