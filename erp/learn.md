@@ -12,3 +12,36 @@ public class MybatiPlusConfig {
         return new PaginationInterceptor();
     }
 }
+
+3.通过request请求获取请求ip值
+request.getRemoteAddr()
+本地请求的话如果是url开头是localhost，那获取的就是0:0:0:0:0:0:0:1
+所以要改成127.0.0.1
+
+4.@JsonFormat和@DateTimeFormat
+    @JsonFormat是处理从数据查出来的时间赋给pojo实体对象时间属性的正确性，一般设置两个参数
+        pattern:是时间格式，一般为"yyyy-mm-dd hh:mm:ss"
+        timezone:是时区，一般为"GTM+8"
+    @DateTimeFormat主要是处理从前台传来的时间的格式化，然后赋给对象的时间属性，也是用pattern和timezone两个参数
+    
+   那么springboot可以用yml配置文件来直接规定时间前后台的转换
+        spring:
+            jackson:
+                date-format: yyyy-MM-dd HH:mm:ss
+                time-zone: GMT+8  
+                
+5.QueryWrapper和LambdaQueryWrapper
+
+   QueryWrapper<BannerItem> wrapper = new QueryWrapper<>();
+   wrapper.eq("banner_id", id);
+   // 查询操作
+   List<BannerItem> bannerItems = bannerItemMapper.selectList(wrapper);
+
+   QueryWrapper<BannerItem> wrapper = new QueryWrapper<>();
+   wrapper.lambda().eq(BannerItem::getBannerId, id);
+   List<BannerItem> bannerItems = bannerItemMapper.selectList(wrapper);
+
+   LambdaQueryWrapper<BannerItem> wrapper = new QueryWrapper<BannerItem>().lambda();
+   wrapper.eq(BannerItem::getBannerId, id);
+   List<BannerItem> bannerItems = bannerItemMapper.selectList(wrapper);
+               

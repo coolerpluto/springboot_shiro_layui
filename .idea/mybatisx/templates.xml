@@ -63,8 +63,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="LogLogin" />
-                  <option name="tableName" value="sys_log_login" />
+                  <option name="className" value="Notice" />
+                  <option name="tableName" value="sys_notice" />
                 </TableUIInfo>
               </list>
             </option>

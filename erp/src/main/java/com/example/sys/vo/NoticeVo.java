@@ -1,7 +1,7 @@
 package com.example.sys.vo;
 
 import com.example.sys.pojo.LogLogin;
-import com.example.sys.pojo.Permission;
+import com.example.sys.pojo.Notice;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class LogLoginVo extends LogLogin {
+public class NoticeVo extends Notice {
 
     private static final long serialVersionUID = 1L;
 

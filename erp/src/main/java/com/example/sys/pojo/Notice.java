@@ -6,17 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
  * 
- * @TableName sys_log_login
+ * @TableName sys_notice
  */
-@TableName(value ="sys_log_login")
+@TableName(value ="sys_notice")
 @Data
-public class LogLogin implements Serializable {
+public class Notice implements Serializable {
     /**
      * 
      */
@@ -26,17 +24,22 @@ public class LogLogin implements Serializable {
     /**
      * 
      */
-    private String loginname;
+    private String title;
 
     /**
      * 
      */
-    private String loginip;
+    private String content;
 
     /**
      * 
      */
-    private Date logintime;
+    private Date createtime;
+
+    /**
+     * 
+     */
+    private String opername;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -52,11 +55,12 @@ public class LogLogin implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        LogLogin other = (LogLogin) that;
+        Notice other = (Notice) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getLoginname() == null ? other.getLoginname() == null : this.getLoginname().equals(other.getLoginname()))
-            && (this.getLoginip() == null ? other.getLoginip() == null : this.getLoginip().equals(other.getLoginip()))
-            && (this.getLogintime() == null ? other.getLogintime() == null : this.getLogintime().equals(other.getLogintime()));
+            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getCreatetime() == null ? other.getCreatetime() == null : this.getCreatetime().equals(other.getCreatetime()))
+            && (this.getOpername() == null ? other.getOpername() == null : this.getOpername().equals(other.getOpername()));
     }
 
     @Override
@@ -64,9 +68,10 @@ public class LogLogin implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getLoginname() == null) ? 0 : getLoginname().hashCode());
-        result = prime * result + ((getLoginip() == null) ? 0 : getLoginip().hashCode());
-        result = prime * result + ((getLogintime() == null) ? 0 : getLogintime().hashCode());
+        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getCreatetime() == null) ? 0 : getCreatetime().hashCode());
+        result = prime * result + ((getOpername() == null) ? 0 : getOpername().hashCode());
         return result;
     }
 
@@ -77,9 +82,10 @@ public class LogLogin implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", loginname=").append(loginname);
-        sb.append(", loginip=").append(loginip);
-        sb.append(", logintime=").append(logintime);
+        sb.append(", title=").append(title);
+        sb.append(", content=").append(content);
+        sb.append(", createtime=").append(createtime);
+        sb.append(", opername=").append(opername);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
