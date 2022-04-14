@@ -16,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @RestController
@@ -25,6 +28,11 @@ public class NoticeController {
     @Autowired
     NoticeService noticeService;
 
+    /**
+     * 加载所有公告
+     * @param noticeVo
+     * @return
+     */
     @RequestMapping("/loadAllNotice")
     public DataGidView loadAllNotice(NoticeVo noticeVo){
         IPage<Notice> page = new Page<>(noticeVo.getPage(),noticeVo.getLimit());
@@ -37,6 +45,11 @@ public class NoticeController {
         return new DataGidView(page.getTotal(),page.getRecords());
     }
 
+    /**
+     * 新增公告
+     * @param noticeVo
+     * @return
+     */
     @RequestMapping("/addNotice")
     public ResultObj addNotice(NoticeVo noticeVo){
         try {
@@ -50,6 +63,56 @@ public class NoticeController {
         }catch (Exception e){
             e.printStackTrace();
             return ResultObj.ADD_PASS;
+        }
+    }
+
+    /**
+     * 删除公告
+     * @return
+     */
+    @RequestMapping("/deleteNotice")
+    public ResultObj deleteNotice(Integer id){
+        try {
+            noticeService.removeById(id);
+            return ResultObj.DELETE_SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultObj.DELETE_PASS;
+        }
+    }
+
+    /**
+     * 批量删除
+     * @param noticeVo
+     * @return
+     */
+    @RequestMapping("/batchDeleteNotice")
+    public ResultObj batchDeleteNotice(NoticeVo noticeVo){
+        try {
+            Collection<Serializable> ids = new ArrayList<Serializable>();
+            for (Integer id : noticeVo.getIds()){
+                ids.add(id);
+            }
+            noticeService.removeByIds(ids);
+            return ResultObj.DELETE_SUCCESS;
+        }catch (Exception e){
+            return ResultObj.DELETE_PASS;
+        }
+    }
+
+    /**
+     * 修改公告
+     * @param noticeVo
+     * @return
+     */
+    @RequestMapping("/updateNotice")
+    public ResultObj updateNotice(NoticeVo noticeVo){
+        try {
+            noticeService.updateById(noticeVo);
+            return ResultObj.UPDATE_SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultObj.UPDATE_PASS;
         }
     }
 }
