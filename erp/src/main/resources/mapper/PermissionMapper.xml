@@ -24,4 +24,13 @@
         href,target,open,
         ordernum,available
     </sql>
+
+
+    <select id="getPermissionSelf" resultType="com.example.sys.pojo.Permission" parameterType="Integer">
+        select * from sys_permission where id = #{id}
+    </select>
+
+    <select id="getPermissionListByIPage" resultType="java.util.Map" parameterType="java.util.Map">
+        select * from sys_permission
+    </select>
 </mapper>

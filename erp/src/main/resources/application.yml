@@ -41,6 +41,7 @@ mybatis-plus:
     banner: true
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.example.sys.pojo
 
 #shiro的配置
 shiro:

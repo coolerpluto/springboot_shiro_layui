@@ -7,11 +7,13 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 
  * @TableName sys_user
  */
+@Accessors(chain = true)
 @TableName(value ="sys_user")
 @Data
 public class User implements Serializable {

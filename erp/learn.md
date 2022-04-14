@@ -12,6 +12,11 @@ public class MybatiPlusConfig {
         return new PaginationInterceptor();
     }
 }
+数据返回前端，记得在controller方法上面加@Responsebody
+
+2.springboot扫描到mapper文件的方式
+第一种是在mapper接口上加@mapepr注解
+第二种是在主程序类上加mapper扫描器注解：@MapperScan(basePackages = {"com.example.sys.mapper"})，basePackages写mapper接口的路径
 
 3.通过request请求获取请求ip值
 request.getRemoteAddr()
