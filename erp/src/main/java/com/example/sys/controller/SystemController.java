@@ -30,4 +30,19 @@ public class SystemController {
     public String toNoticeManager(){
         return "system/notice/noticeManager";
     }
+
+    @RequestMapping("toDeptManager")
+    public String toDeptManager(){
+        return "system/dept/deptManager";
+    }
+
+    @RequestMapping("toDeptLeft")
+    public String toDeptLeft(){
+        return "system/dept/deptLeft";
+    }
+
+    @RequestMapping("toDeptRight")
+    public String toDeptRight(){
+        return "system/dept/deptRight";
+    }
 }

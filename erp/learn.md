@@ -49,4 +49,7 @@ request.getRemoteAddr()
    LambdaQueryWrapper<BannerItem> wrapper = new QueryWrapper<BannerItem>().lambda();
    wrapper.eq(BannerItem::getBannerId, id);
    List<BannerItem> bannerItems = bannerItemMapper.selectList(wrapper);
+
+6.@JsonProperty注解
+这个注解放在实体类属性上面，在反序列化的时候给属性重命名
                
