@@ -45,4 +45,19 @@ public class SystemController {
     public String toDeptRight(){
         return "system/dept/deptRight";
     }
+
+    @RequestMapping("toMenuManager")
+    public String toMenuManager(){
+        return "system/menu/menuManager";
+    }
+
+    @RequestMapping("toMenuLeft")
+    public String toMenuLeft(){
+        return "system/menu/menuLeft";
+    }
+
+    @RequestMapping("toMenuRight")
+    public String toMenuRight(){
+        return "system/menu/menuRight";
+    }
 }
