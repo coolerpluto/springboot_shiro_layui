@@ -34,7 +34,7 @@ import lombok.Data;
  */
 @Configuration
 @ConditionalOnWebApplication(type = Type.SERVLET)
-//@ConditionalOnClass(value = { SecurityManager.class })
+@ConditionalOnClass(value = { SecurityManager.class })
 @ConfigurationProperties(prefix = "shiro")
 @Data
 public class ShiroAutoConfiguration {
