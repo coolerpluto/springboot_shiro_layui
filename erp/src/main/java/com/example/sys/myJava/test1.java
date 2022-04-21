@@ -2,6 +2,7 @@ package com.example.sys.myJava;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,6 @@ public class test1 {
         String a = " ";
         System.out.println(StringUtils.isNotBlank(a));
         System.out.println(a==null);
-
+        System.out.println();
     }
 }

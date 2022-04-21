@@ -5,6 +5,7 @@ import com.example.sys.common.ResultObj;
 import com.example.sys.common.WebUtils;
 import com.example.sys.pojo.LogLogin;
 import com.example.sys.service.LogLoginService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
+@Slf4j
 @RequestMapping("login")
 @RestController
 public class LoginController {
@@ -38,6 +40,8 @@ public class LoginController {
             logLogin.setLoginip(WebUtils.getRequest().getRemoteAddr());
             logLogin.setLogintime(new Date());
             logLoginService.save(logLogin);
+            log.info("logid；"+logLogin.getId());
+            log.info("登录时间:"+logLoginService.getById(logLogin.getId()).getLogintime());
             //向前端一个ajax返回数据，通过判断code是不是200来判断是否登录成功
             return ResultObj.LOGIN_SUCCESS;
         }catch (AuthenticationException e){
