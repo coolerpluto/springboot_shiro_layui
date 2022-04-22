@@ -22,6 +22,9 @@ public class CacheAspect {
 //    定义部门缓存前缀
     private static final String DEPT_PREFIX = "dept:";
 
+//    切面表达式写法：必要元素包括返回类型和方法包路径，"*"代表任意字符，"."代表当前包下，".."如果是在路径里不在方法括号里代表的当前包下及其子包，
+//    方法括号里的".."代表任意参数个数
+
 //    定义切面表达式
     private static final String  POINTCUT_DEPT_GET = "execution(* com.example.sys.service.impl.DeptServiceImpl.getById(..))";
     private static final String  POINTCUT_DEPT_DELETE = "execution(* com.example.sys.service.impl.DeptServiceImpl.removeById(..))";
@@ -35,6 +38,7 @@ public class CacheAspect {
      */
     @Around(POINTCUT_DEPT_GET)
     public Object cacheDeptGet(ProceedingJoinPoint joinPoint) throws Throwable {
+
         Integer deptId = (Integer) joinPoint.getArgs()[0];
         Object res = CACHE_CONTAINER.get(DEPT_PREFIX+deptId);
         if (res==null){
